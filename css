@@ -7,3 +7,37 @@
     overflow: hidden;
     white-space: nowrap; //不允许换行
     text-overflow: ellipsis;
+    
+    
+ 2.多行最后一行超出隐藏点点显示
+
+    width: 100%; 
+    display: -webkit-box;
+    -webkit-line-clamp: 3; //盒子模型属性，设置最大行数
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+  二.上下左右居中：
+
+1.知道固定宽高(兼容IE8)
+
+    position: absolute/fixed;
+    top: 50%;
+    left: 50%;
+    margin-top:-height/2;
+    margin-left:-width/2;
+    
+  2.transform法,不知道父和自己的高度(不兼容IE8)
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    
+  3.知道父级的高度
+
+    .childElement {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
