@@ -41,3 +41,92 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    
+   4.table-cell实现不固定宽高文字垂直居中
+   
+   三.卡片hover过放大：
+        .card{
+            transition: all 0.2s; //设置缓慢变化需要的时长
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        
+四.原生模拟点击事件不可点击：
+
+        :global(.ql-toolbar) {
+                pointer-events: none;
+                background: #F7F7F7;
+                color: rgba(0, 0, 0, 0.25);
+              }
+      
+      
+    
+   五.border实现小三角：
+
+           2,3块透明 => 
+
+        .div{
+        border-width: 13px;
+        border-style: solid; // 实线类型
+        border-color: #857e74 transparent transparent #857e74; // 正方形中心交叉分割四块
+        }
+        
+        
+    六.不同手机尺寸css效果不一致(IE8不支持)：
+        @media only screen and (device-width: 375px) and (device-height: 812px){ // iphoneX尺寸
+          .some-code {
+            top: 84px;
+            height: calc(100% - 84px);
+          }
+        }
+七.vue渲染元素时v-if判断会留有空白域，img，input等内联元素会受影响导致有间隙，可在父级div的css里加：
+
+        font-size: 0;
+
+八.margin 折叠问题:
+
+        父级与子折叠:父加overflow: hidden;或者 float,或display:inline-block,position: absolute;
+
+        相邻折叠: float,inline-block
+
+九.从中心开始长度延伸下滑线line:
+        .div{
+        postion: relative;
+        }
+        .div::after{
+        content: '',
+        postion: absolute;
+        visibility: hidden; //占位并且隐藏
+        left: 0;
+        bottom: 0;
+        transform: scaleX(0); // X轴上缩小到0
+        transition: .4s ease-in-out;
+        }
+        .div:hover::after{
+        visibility: visible; // 显示
+        transform: scaleX(1); // 放大到1倍数 
+        }
+
+十.div高度充满:
+
+        100%:百分比是按照自己父级判定的,所以元素的父级都要100%;
+
+        复制代码
+        html,body{
+          height: 100%;  
+        }
+        div{
+           height: 100%; 
+        }
+        vh或者vw:是按照屏幕宽高判定,1vh = 1%屏幕高
+        
+  十一.video内的poster铺满
+
+        video{
+            width: 100%; 
+            height: 100%; 
+            object-fit: fill;
+        }
+ 
+   
